@@ -1,0 +1,17 @@
+/* RedmineOH theme entry point */
+
+@import url(../../application.css);
+@import url("tokens.css");
+@import url("base.css");
+@import url("layout.css");
+@import url("components.css");
+@import url("pages.css");
+
+:root {
+  --oh-theme-name: "RedmineOH";
+  --oh-theme-version: "0.1.0";
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+}

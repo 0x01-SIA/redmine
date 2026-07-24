@@ -1,0 +1,410 @@
+/* Application shell */
+.oh-visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#top-menu.oh-global-bar {
+  align-items: center;
+  background-color: #24303c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  display: flex;
+  gap: var(--oh-space-3);
+  min-height: 2rem;
+  padding: var(--oh-space-2) var(--oh-space-4);
+}
+
+.oh-global-nav {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.oh-global-search {
+  flex: 0 1 18rem;
+  max-width: 18rem;
+  min-width: 12rem;
+}
+
+.oh-account-nav {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--oh-space-2);
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+#top-menu ul {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#top-menu li {
+  align-items: center;
+  display: inline-flex;
+  float: none;
+  list-style: none;
+  position: relative;
+}
+
+.oh-global-nav li + li,
+#account li + li {
+  margin-left: var(--oh-space-2);
+  padding-left: var(--oh-space-2);
+}
+
+.oh-global-nav li + li::before,
+#account li + li::before {
+  background: rgba(255, 255, 255, 0.16);
+  content: "";
+  height: 0.75rem;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+}
+
+#top-menu a,
+#top-menu #loggedas a,
+#top-menu #account a {
+  border-radius: 0.375rem;
+  color: inherit;
+  display: inline-flex;
+  font-size: var(--oh-text-xs);
+  font-weight: var(--oh-weight-medium);
+  line-height: 1.4;
+  margin-right: 0;
+  padding: 0.125rem 0.25rem;
+  text-decoration: none;
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#top-menu a:hover,
+#top-menu #loggedas a:hover,
+#top-menu #account a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+#top-menu a:focus-visible,
+#top-menu #loggedas a:focus-visible,
+#top-menu #account a:focus-visible {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  outline: 2px solid rgba(255, 255, 255, 0.26);
+  outline-offset: 1px;
+}
+
+#top-menu #loggedas {
+  color: rgba(255, 255, 255, 0.68);
+  float: none;
+  font-size: var(--oh-text-xs);
+  font-weight: var(--oh-weight-regular);
+  margin: 0;
+  padding: 0.125rem 0;
+  white-space: nowrap;
+}
+
+#account {
+  float: none;
+  margin: 0;
+}
+
+#account ul {
+  justify-content: flex-end;
+}
+
+#account a {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: var(--oh-weight-regular);
+}
+
+#account a:hover,
+#account a:focus-visible {
+  color: #ffffff;
+}
+
+.oh-global-search form {
+  align-items: center;
+  display: flex;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.oh-global-search #q {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  height: var(--oh-control-height-compact);
+  min-width: 0;
+  padding: 0 var(--oh-space-3);
+  width: 100%;
+}
+
+.oh-global-search #q:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.oh-global-search #q:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+
+.oh-global-search #q:focus-visible {
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+}
+
+.oh-global-search #q::placeholder {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+#header.oh-workspace-header {
+  /* Redmine's base background shorthand needs a full background reset to remove the blue band. */
+  background: var(--oh-surface) !important;
+  border-bottom: 1px solid var(--oh-border-subtle);
+  color: var(--oh-text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: var(--oh-space-2) var(--oh-space-4) 0;
+  position: relative;
+}
+
+#header a {
+  color: inherit;
+}
+
+.oh-workspace-title {
+  padding-bottom: var(--oh-space-2);
+}
+
+#header h1 {
+  color: var(--oh-text-primary);
+  font-size: var(--oh-text-lg);
+  font-weight: var(--oh-weight-medium);
+  line-height: var(--oh-line-compact);
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+#header h1 .breadcrumbs {
+  color: var(--oh-text-tertiary);
+  display: block;
+  font-size: var(--oh-text-xs);
+  font-weight: var(--oh-weight-medium);
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+#main-menu.oh-project-navigation {
+  background-color: var(--oh-surface-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.72);
+  bottom: auto;
+  left: auto;
+  margin-right: 0;
+  padding: var(--oh-space-2) 0 0;
+  position: static;
+  width: 100%;
+}
+
+#main-menu ul {
+  align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oh-space-1);
+  margin: 0;
+  padding: 0;
+  white-space: normal;
+  width: auto;
+}
+
+#main-menu li {
+  display: inline-flex;
+  float: none;
+  list-style: none;
+  margin: 0;
+  position: relative;
+}
+
+#main-menu li a {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-top-left-radius: 0.55rem;
+  border-top-right-radius: 0.55rem;
+  color: var(--oh-text-secondary);
+  font-size: var(--oh-text-sm);
+  font-weight: var(--oh-weight-medium);
+  line-height: 1.25;
+  margin: 0;
+  padding: 0.45rem 0.7rem 0.5rem;
+  text-decoration: none;
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    border-color var(--oh-duration-fast) var(--oh-ease-standard),
+    color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#main-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.72);
+  border-color: rgba(217, 224, 234, 0.8);
+  color: var(--oh-text-primary);
+}
+
+#main-menu li a:focus-visible {
+  background-color: var(--oh-surface-elevated);
+  border-color: var(--oh-border-default);
+  color: var(--oh-text-primary);
+  outline: 2px solid var(--oh-focus-ring);
+  outline-offset: 1px;
+}
+
+#main-menu li a.selected,
+#main-menu li a.selected:hover {
+  background-color: var(--oh-surface-elevated);
+  border-color: var(--oh-border-default);
+  color: var(--oh-text-primary);
+  font-weight: var(--oh-weight-semibold);
+}
+
+#main-menu li a.new-object {
+  color: var(--oh-accent-active);
+}
+
+#main-menu li a.new-object:hover,
+#main-menu li a.new-object:focus-visible {
+  color: var(--oh-accent-hover);
+}
+
+#main-menu li:hover ul.menu-children,
+#main-menu li ul.menu-children.visible {
+  display: block;
+}
+
+#main-menu .menu-children {
+  background-color: var(--oh-surface-elevated);
+  border: 1px solid var(--oh-border-default);
+  border-radius: 0.65rem;
+  box-shadow: var(--oh-shadow-subtle);
+  margin-top: 0.3rem;
+  min-width: 12rem;
+  overflow: hidden;
+  width: max-content;
+}
+
+#main-menu .menu-children li {
+  display: block;
+  float: none;
+  width: 100%;
+}
+
+#main-menu .menu-children li a {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--oh-text-secondary);
+  font-weight: var(--oh-weight-regular);
+  padding: 0.5rem 0.8rem;
+}
+
+#main-menu .menu-children li a:hover,
+#main-menu .menu-children li a:focus-visible {
+  background-color: var(--oh-surface-hover);
+  color: var(--oh-text-primary);
+}
+
+#main-menu .tabs-buttons {
+  background-color: transparent;
+  border-bottom-color: transparent;
+  right: var(--oh-space-3);
+}
+
+/* Main workspace */
+#main.oh-main-layout {
+  align-items: stretch;
+  background-color: var(--oh-surface-secondary);
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  min-height: calc(100vh - 10rem);
+}
+
+#main.nosidebar.oh-main-layout {
+  background-color: var(--oh-surface);
+}
+
+/* Primary content */
+#content.oh-main-content {
+  background-color: var(--oh-surface);
+  border-left: 0;
+  box-shadow: none;
+  color: var(--oh-text-primary);
+  flex: 1 1 auto;
+  margin: 0;
+  min-height: 100%;
+  overflow-x: auto;
+  padding: var(--oh-space-4) var(--oh-space-5) var(--oh-space-5);
+}
+
+.oh-main-content > .tabs ul {
+  padding-left: 0;
+}
+
+.oh-main-content > .tabs ul li:first-child a {
+  border-top-left-radius: 0;
+}
+
+#sidebar,
+#sidebar-switch-panel {
+  display: none;
+}
+
+/* Footer */
+#footer {
+  background-color: var(--oh-surface);
+  border-top: 1px solid var(--oh-border-subtle);
+  clear: both;
+  color: var(--oh-text-tertiary);
+  font-size: var(--oh-text-xs);
+  padding: var(--oh-space-2) var(--oh-space-4) var(--oh-space-3);
+  text-align: center;
+}
+
+#footer a {
+  color: inherit;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #top-menu a,
+  #top-menu #loggedas a,
+  #top-menu #account a,
+  #main-menu li a {
+    transition: none;
+  }
+}

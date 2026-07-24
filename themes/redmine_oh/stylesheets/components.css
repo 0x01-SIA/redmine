@@ -1,0 +1,754 @@
+/* Buttons */
+#content p.buttons,
+#content div.buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oh-space-2);
+}
+
+#content p.buttons,
+#content div.buttons {
+  margin-bottom: var(--oh-space-5);
+  margin-top: var(--oh-space-4);
+}
+
+#content input[type="submit"],
+#content input[type="button"],
+#content form button[type="submit"],
+#content form button[type="button"],
+#content p.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button),
+#content div.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button) {
+  appearance: auto;
+  background-color: var(--oh-surface-secondary);
+  border: 1px solid var(--oh-border-default);
+  border-radius: var(--oh-radius-control);
+  box-shadow: none;
+  color: var(--oh-text-primary);
+  cursor: pointer;
+  font-family: var(--oh-font-sans);
+  font-size: var(--oh-text-sm);
+  font-weight: var(--oh-weight-medium);
+  height: var(--oh-control-height);
+  line-height: calc(var(--oh-control-height) - 2px);
+  padding: 0 var(--oh-space-4);
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    border-color var(--oh-duration-fast) var(--oh-ease-standard),
+    box-shadow var(--oh-duration-fast) var(--oh-ease-standard),
+    color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#content input[type="submit"]:hover,
+#content input[type="button"]:hover,
+#content form button[type="submit"]:hover,
+#content form button[type="button"]:hover,
+#content p.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button):hover,
+#content div.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button):hover {
+  background-color: var(--oh-surface-hover);
+  border-color: var(--oh-border-strong);
+}
+
+#content input[type="submit"]:focus-visible,
+#content input[type="button"]:focus-visible,
+#content form button[type="submit"]:focus-visible,
+#content form button[type="button"]:focus-visible,
+#content p.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button):focus-visible,
+#content div.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+}
+
+#content input[type="submit"]:active,
+#content input[type="button"]:active,
+#content form button[type="submit"]:active,
+#content form button[type="button"]:active,
+#content p.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button):active,
+#content div.buttons button:not(.tab-left):not(.tab-right):not(.jstb_button):active {
+  background-color: var(--oh-surface-tertiary);
+  border-color: var(--oh-border-strong);
+}
+
+#content input[type="submit"],
+#content form button[type="submit"] {
+  background-color: var(--oh-accent);
+  border-color: var(--oh-accent);
+  color: var(--oh-text-on-accent);
+}
+
+#content input[type="submit"]:hover,
+#content form button[type="submit"]:hover {
+  background-color: var(--oh-accent-hover);
+  border-color: var(--oh-accent-hover);
+}
+
+#content input[type="submit"]:active,
+#content form button[type="submit"]:active {
+  background-color: var(--oh-accent-active);
+  border-color: var(--oh-accent-active);
+}
+
+#content input[type="submit"].delete,
+#content input[type="button"].delete,
+#content form button[type="submit"].delete,
+#content form button[type="button"].delete,
+#content button.delete,
+#content p.buttons .delete input[type="submit"],
+#content div.buttons .delete input[type="submit"] {
+  background-color: var(--oh-danger-soft);
+  border-color: rgba(194, 87, 87, 0.28);
+  color: var(--oh-danger);
+}
+
+#content input[type="submit"].delete:hover,
+#content input[type="button"].delete:hover,
+#content form button[type="submit"].delete:hover,
+#content form button[type="button"].delete:hover,
+#content button.delete:hover,
+#content p.buttons .delete input[type="submit"]:hover,
+#content div.buttons .delete input[type="submit"]:hover {
+  background-color: #f7dede;
+  border-color: rgba(194, 87, 87, 0.4);
+}
+
+#content .button-small,
+#content input[type="submit"].small,
+#content input[type="button"].small,
+#content button.small {
+  font-size: var(--oh-text-xs);
+  height: var(--oh-control-height-compact);
+  line-height: calc(var(--oh-control-height-compact) - 2px);
+  padding: 0 var(--oh-space-3);
+}
+
+/* Text inputs and textareas */
+#content input[type="text"],
+#content input[type="password"],
+#content input[type="email"],
+#content input[type="number"],
+#content input[type="date"],
+#content input[type="search"],
+#content input[type="url"],
+#content input[type="tel"],
+#content input[type="time"],
+#content textarea {
+  background-color: var(--oh-surface-elevated);
+  border: 1px solid var(--oh-border-default);
+  border-radius: var(--oh-radius-control);
+  box-shadow: none;
+  color: var(--oh-text-primary);
+  font-family: var(--oh-font-sans);
+  font-size: var(--oh-text-sm);
+  line-height: var(--oh-line-normal);
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    border-color var(--oh-duration-fast) var(--oh-ease-standard),
+    box-shadow var(--oh-duration-fast) var(--oh-ease-standard),
+    color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#content input[type="text"],
+#content input[type="password"],
+#content input[type="email"],
+#content input[type="number"],
+#content input[type="date"],
+#content input[type="search"],
+#content input[type="url"],
+#content input[type="tel"],
+#content input[type="time"] {
+  height: var(--oh-control-height);
+  padding: 0 var(--oh-space-3);
+}
+
+#content textarea {
+  min-height: calc(var(--oh-control-height) * 2.5);
+  padding: var(--oh-space-2) var(--oh-space-3);
+}
+
+#content input[type="text"]:hover,
+#content input[type="password"]:hover,
+#content input[type="email"]:hover,
+#content input[type="number"]:hover,
+#content input[type="date"]:hover,
+#content input[type="search"]:hover,
+#content input[type="url"]:hover,
+#content input[type="tel"]:hover,
+#content input[type="time"]:hover,
+#content textarea:hover {
+  border-color: var(--oh-border-strong);
+}
+
+#content input[type="text"]:focus-visible,
+#content input[type="password"]:focus-visible,
+#content input[type="email"]:focus-visible,
+#content input[type="number"]:focus-visible,
+#content input[type="date"]:focus-visible,
+#content input[type="search"]:focus-visible,
+#content input[type="url"]:focus-visible,
+#content input[type="tel"]:focus-visible,
+#content input[type="time"]:focus-visible,
+#content textarea:focus-visible {
+  border-color: var(--oh-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+}
+
+#content input::placeholder,
+#content textarea::placeholder {
+  color: var(--oh-text-tertiary);
+}
+
+#content textarea.wiki-edit {
+  width: 99%;
+}
+
+#content .jstBlock textarea,
+#content .jstBlock .wiki-preview,
+#content .jstBlock .jstTabs {
+  border-radius: var(--oh-radius-control);
+}
+
+/* Shared tabs */
+#content .tabs {
+  height: auto;
+  margin-bottom: var(--oh-space-4);
+  min-height: 2.35rem;
+}
+
+#content .tabs ul {
+  border-bottom: 1px solid var(--oh-border-default);
+  padding-left: var(--oh-space-1);
+  padding-right: 3.75rem;
+}
+
+#content .tabs ul li {
+  margin-right: var(--oh-space-1);
+}
+
+#content .tabs ul li a {
+  background-color: rgba(247, 249, 252, 0.88);
+  border-color: var(--oh-border-default);
+  border-top-left-radius: 0.45rem;
+  border-top-right-radius: 0.45rem;
+  color: var(--oh-text-secondary);
+  font-size: var(--oh-text-xs);
+  font-weight: var(--oh-weight-semibold);
+  line-height: 1.35;
+  padding: 0.45rem 0.7rem;
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    border-color var(--oh-duration-fast) var(--oh-ease-standard),
+    box-shadow var(--oh-duration-fast) var(--oh-ease-standard),
+    color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#content .tabs ul li a:hover {
+  background-color: var(--oh-surface-hover);
+  border-color: var(--oh-border-strong);
+  color: var(--oh-text-primary);
+}
+
+#content .tabs ul li a:focus-visible {
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+  outline: none;
+}
+
+#content .tabs ul li a.selected,
+#content .tabs ul li a[aria-selected="true"] {
+  background-color: var(--oh-surface-elevated);
+  border-color: var(--oh-border-strong);
+  border-bottom-color: var(--oh-surface-elevated);
+  box-shadow: none;
+  color: var(--oh-text-primary);
+}
+
+#content .tabs ul li a.selected:hover,
+#content .tabs ul li a[aria-selected="true"]:hover {
+  background-color: var(--oh-surface-elevated);
+}
+
+#content .tabs ul li a.selected:active,
+#content .tabs ul li a[aria-selected="true"]:active,
+#content .tabs ul li a:active {
+  background-color: var(--oh-surface-secondary);
+}
+
+#content .tabs ul li.disabled a,
+#content .tabs ul li a.disabled,
+#content .tabs ul li a[aria-disabled="true"] {
+  background-color: rgba(241, 244, 248, 0.72);
+  border-color: var(--oh-border-subtle);
+  color: var(--oh-text-disabled);
+  cursor: default;
+}
+
+#content div.tabs-buttons {
+  background-color: rgba(252, 253, 255, 0.96);
+  border-bottom-color: var(--oh-border-default);
+  height: 1.95rem;
+  width: 3.5rem;
+}
+
+#content button.tab-left,
+#content button.tab-right {
+  background-color: var(--oh-surface-secondary);
+  border-color: var(--oh-border-default);
+  border-bottom-color: var(--oh-border-default);
+  height: 1.95rem;
+  padding: 0.3rem;
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    border-color var(--oh-duration-fast) var(--oh-ease-standard),
+    box-shadow var(--oh-duration-fast) var(--oh-ease-standard);
+  width: 1.5rem;
+}
+
+#content button.tab-left:hover,
+#content button.tab-right:hover {
+  background-color: var(--oh-surface-hover);
+  border-color: var(--oh-border-strong);
+}
+
+#content button.tab-left:focus-visible,
+#content button.tab-right:focus-visible {
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+  outline: none;
+}
+
+#content button.tab-left svg.icon-svg,
+#content button.tab-right svg.icon-svg {
+  stroke: var(--oh-text-secondary);
+}
+
+#content button.tab-left.disabled,
+#content button.tab-right.disabled {
+  background-color: var(--oh-surface-tertiary);
+  border-color: var(--oh-border-subtle);
+}
+
+/* Flash messages */
+#content div.flash,
+#content #errorExplanation {
+  align-items: flex-start;
+  background-color: rgba(247, 249, 252, 0.94);
+  border-color: var(--oh-border-default);
+  border-radius: 0.55rem;
+  border-width: 1px;
+  border-left-width: 0.3rem;
+  color: var(--oh-text-primary);
+  display: flex;
+  gap: var(--oh-space-2);
+  line-height: 1.45;
+  margin-bottom: var(--oh-space-3);
+  margin-top: var(--oh-space-2);
+  padding: 0.55rem 0.75rem 0.55rem 0.9rem;
+}
+
+#content div.flash svg.icon-svg,
+#content #errorExplanation svg.icon-svg {
+  flex: 0 0 auto;
+  margin: 0.1rem 0 0;
+}
+
+#content #errorExplanation > svg.icon-svg {
+  position: static;
+}
+
+#content div.flash a,
+#content #errorExplanation a {
+  color: inherit;
+  font-weight: var(--oh-weight-medium);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
+}
+
+#content div.flash.notice {
+  background-color: var(--oh-success-soft);
+  border-color: rgba(47, 143, 99, 0.24);
+  color: #1f5f43;
+}
+
+#content div.flash.notice svg.icon-svg {
+  stroke: var(--oh-success);
+}
+
+#content div.flash.warning {
+  background-color: var(--oh-warning-soft);
+  border-color: rgba(183, 121, 31, 0.28);
+  color: #7a561f;
+}
+
+#content div.flash.warning svg.icon-svg {
+  stroke: var(--oh-warning);
+}
+
+#content div.flash.error,
+#content #errorExplanation {
+  background-color: var(--oh-danger-soft);
+  border-color: rgba(194, 87, 87, 0.28);
+  color: #8d4040;
+}
+
+#content div.flash.error svg.icon-svg,
+#content #errorExplanation svg.icon-svg {
+  stroke: var(--oh-danger);
+}
+
+/* Compact contextual toolbars */
+#content #history .journal-actions,
+#content #history .journal-header .contextual,
+#content .wiki-page .contextual {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  white-space: normal;
+}
+
+#content .wiki-page .contextual {
+  background-color: rgba(247, 249, 252, 0.9);
+  border: 1px solid var(--oh-border-subtle);
+  border-radius: var(--oh-radius-control);
+  padding: 0.25rem;
+}
+
+#content #history .journal-actions a,
+#content #history .journal-header .contextual a,
+#content .wiki-page .contextual a {
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  color: var(--oh-text-secondary);
+  display: inline-flex;
+  gap: 0.35rem;
+  line-height: 1.3;
+  min-height: 1.85rem;
+  padding: 0.2rem 0.5rem;
+  text-decoration: none;
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    border-color var(--oh-duration-fast) var(--oh-ease-standard),
+    box-shadow var(--oh-duration-fast) var(--oh-ease-standard),
+    color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#content #history .journal-actions a:hover,
+#content #history .journal-header .contextual a:hover,
+#content .wiki-page .contextual a:hover {
+  background-color: var(--oh-surface-hover);
+  border-color: rgba(126, 145, 166, 0.22);
+  color: var(--oh-text-primary);
+}
+
+#content #history .journal-actions a:focus-visible,
+#content #history .journal-header .contextual a:focus-visible,
+#content .wiki-page .contextual a:focus-visible {
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+  outline: none;
+}
+
+#content #history .journal-actions a:active,
+#content #history .journal-header .contextual a:active,
+#content .wiki-page .contextual a:active {
+  background-color: rgba(230, 235, 242, 0.92);
+  border-color: rgba(126, 145, 166, 0.28);
+}
+
+#content #history .journal-actions a.icon-del,
+#content #history .journal-header .contextual a.icon-del,
+#content .wiki-page .contextual a.icon-del {
+  color: var(--oh-danger);
+}
+
+#content #history .journal-actions a.icon-del:hover,
+#content #history .journal-header .contextual a.icon-del:hover,
+#content .wiki-page .contextual a.icon-del:hover {
+  background-color: var(--oh-danger-soft);
+  border-color: rgba(194, 87, 87, 0.2);
+}
+
+#content #history .journal-actions .icon,
+#content #history .journal-header .contextual .icon,
+#content .wiki-page .contextual .icon {
+  background-position: 0 50%;
+}
+
+/* Inline action groups */
+#content #watchers > .contextual,
+#content #relations > .contextual,
+#content #issue_tree > .contextual,
+#content .attachments > .contextual,
+#content p.other-formats,
+#content div.other-formats {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  white-space: normal;
+}
+
+#content #watchers > .contextual a,
+#content #relations > .contextual a,
+#content #issue_tree > .contextual a,
+#content .attachments > .contextual a,
+#content p.other-formats a,
+#content div.other-formats a {
+  color: var(--oh-text-secondary);
+  display: inline-flex;
+  font-size: var(--oh-text-xs);
+  font-weight: var(--oh-weight-medium);
+  line-height: 1.35;
+  padding: 0.1rem 0;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
+  transition:
+    color var(--oh-duration-fast) var(--oh-ease-standard),
+    box-shadow var(--oh-duration-fast) var(--oh-ease-standard),
+    text-decoration-color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#content #watchers > .contextual a:hover,
+#content #relations > .contextual a:hover,
+#content #issue_tree > .contextual a:hover,
+#content .attachments > .contextual a:hover,
+#content p.other-formats a:hover,
+#content div.other-formats a:hover {
+  color: var(--oh-text-primary);
+}
+
+#content #watchers > .contextual a:focus-visible,
+#content #relations > .contextual a:focus-visible,
+#content #issue_tree > .contextual a:focus-visible,
+#content .attachments > .contextual a:focus-visible,
+#content p.other-formats a:focus-visible,
+#content div.other-formats a:focus-visible {
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+  outline: none;
+}
+
+#content #watchers > .contextual a.icon-add,
+#content #relations > .contextual a.icon-add,
+#content #issue_tree > .contextual a.icon-add,
+#content .attachments > .contextual a.icon-add {
+  color: var(--oh-accent-active);
+}
+
+#content #watchers > .contextual a.icon-add:hover,
+#content #relations > .contextual a.icon-add:hover,
+#content #issue_tree > .contextual a.icon-add:hover,
+#content .attachments > .contextual a.icon-add:hover {
+  color: var(--oh-accent);
+}
+
+#content #watchers > .contextual a.icon-del,
+#content #relations > .contextual a.icon-del,
+#content #issue_tree > .contextual a.icon-del,
+#content .attachments > .contextual a.icon-del {
+  color: var(--oh-danger);
+}
+
+/* Selects */
+#content select {
+  appearance: auto;
+  background-color: var(--oh-surface-elevated);
+  background-image: none;
+  border: 1px solid var(--oh-border-default);
+  border-radius: var(--oh-radius-control);
+  box-shadow: none;
+  color: var(--oh-text-primary);
+  font-family: var(--oh-font-sans);
+  font-size: var(--oh-text-sm);
+  height: var(--oh-control-height);
+  line-height: var(--oh-line-normal);
+  padding: 0 calc(var(--oh-space-4) + 1.2rem) 0 var(--oh-space-3);
+  transition:
+    background-color var(--oh-duration-fast) var(--oh-ease-standard),
+    border-color var(--oh-duration-fast) var(--oh-ease-standard),
+    box-shadow var(--oh-duration-fast) var(--oh-ease-standard),
+    color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#content select:hover {
+  border-color: var(--oh-border-strong);
+}
+
+#content select:focus-visible {
+  border-color: var(--oh-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--oh-focus-ring);
+}
+
+#content select[multiple],
+#content select[multiple="multiple"] {
+  height: auto;
+  min-height: calc(var(--oh-control-height) * 2.5);
+  padding: var(--oh-space-2);
+}
+
+#content .check_box_group {
+  background-color: var(--oh-surface-elevated);
+  border: 1px solid var(--oh-border-default);
+  border-radius: var(--oh-radius-control);
+  padding: var(--oh-space-2) var(--oh-space-3);
+}
+
+/* Checkboxes and radio buttons */
+#content input[type="checkbox"],
+#content input[type="radio"] {
+  accent-color: var(--oh-accent);
+  height: 1rem;
+  margin: 0;
+  width: 1rem;
+}
+
+#content label.inline input[type="checkbox"],
+#content label.inline input[type="radio"],
+#content p > input[type="checkbox"],
+#content p > input[type="radio"] {
+  margin-right: var(--oh-space-2);
+}
+
+/* Labels and help text */
+#content label {
+  color: var(--oh-text-primary);
+  font-size: var(--oh-text-sm);
+  font-weight: var(--oh-weight-medium);
+  letter-spacing: normal;
+}
+
+#content .tabular label {
+  line-height: var(--oh-control-height);
+}
+
+#content label.inline,
+#content .tabular label.inline,
+#content .tabular label.block,
+#content .check_box_group label,
+#content #issue_is_private_label {
+  font-weight: var(--oh-weight-regular);
+  line-height: var(--oh-line-normal);
+}
+
+#content span.required,
+#content label .required {
+  color: var(--oh-danger);
+  font-weight: var(--oh-weight-semibold);
+}
+
+#content span.field-description,
+#content em.info,
+#content p.help,
+#content .form-help,
+#content .tabular .wiki-preview + p {
+  color: var(--oh-text-secondary);
+  font-size: var(--oh-text-xs);
+  line-height: 1.45;
+}
+
+#content abbr,
+#content span.field-description[title] {
+  border-bottom-color: var(--oh-border-strong);
+  color: var(--oh-text-secondary);
+}
+
+/* Disabled and readonly states */
+#content input:disabled,
+#content select:disabled,
+#content textarea:disabled,
+#content button:disabled,
+#content input[readonly],
+#content textarea[readonly] {
+  background-color: var(--oh-surface-tertiary);
+  border-color: var(--oh-border-subtle);
+  box-shadow: none;
+  color: var(--oh-text-disabled);
+}
+
+#content input:disabled,
+#content select:disabled,
+#content textarea:disabled,
+#content button:disabled {
+  cursor: not-allowed;
+}
+
+#content input[readonly],
+#content textarea[readonly] {
+  cursor: default;
+}
+
+/* Validation states */
+#content .tabular label.error,
+#content label.error,
+#content .errorExplanation,
+#content #errorExplanation {
+  color: var(--oh-danger);
+}
+
+#content .tabular label.error + *:not(#issue_description_and_toolbar),
+#content .tabular label.error + span#issue_description_and_toolbar div.jstBlock,
+#content .field_with_errors input[type="text"],
+#content .field_with_errors input[type="password"],
+#content .field_with_errors input[type="email"],
+#content .field_with_errors input[type="number"],
+#content .field_with_errors input[type="date"],
+#content .field_with_errors input[type="search"],
+#content .field_with_errors select,
+#content .field_with_errors textarea {
+  border-color: var(--oh-danger);
+  box-shadow: 0 0 0 1px rgba(194, 87, 87, 0.08);
+}
+
+#content .tabular label.error + *:not(#issue_description_and_toolbar):focus-visible,
+#content .tabular label.error + span#issue_description_and_toolbar div.jstBlock:focus-within,
+#content .field_with_errors input[type="text"]:focus-visible,
+#content .field_with_errors input[type="password"]:focus-visible,
+#content .field_with_errors input[type="email"]:focus-visible,
+#content .field_with_errors input[type="number"]:focus-visible,
+#content .field_with_errors input[type="date"]:focus-visible,
+#content .field_with_errors input[type="search"]:focus-visible,
+#content .field_with_errors select:focus-visible,
+#content .field_with_errors textarea:focus-visible {
+  border-color: var(--oh-danger);
+  box-shadow:
+    0 0 0 1px rgba(194, 87, 87, 0.18),
+    0 0 0 3px var(--oh-focus-ring);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #content .tabs ul li a,
+  #content button.tab-left,
+  #content button.tab-right,
+  #content div.flash,
+  #content #errorExplanation,
+  #content #history .journal-actions a,
+  #content #history .journal-header .contextual a,
+  #content .wiki-page .contextual a,
+  #content #watchers > .contextual a,
+  #content #relations > .contextual a,
+  #content #issue_tree > .contextual a,
+  #content .attachments > .contextual a,
+  #content p.other-formats a,
+  #content div.other-formats a,
+  #content input[type="submit"],
+  #content input[type="button"],
+  #content form button,
+  #content .buttons button,
+  #content p.buttons button,
+  #content div.buttons button,
+  #content input[type="text"],
+  #content input[type="password"],
+  #content input[type="email"],
+  #content input[type="number"],
+  #content input[type="date"],
+  #content input[type="search"],
+  #content input[type="url"],
+  #content input[type="tel"],
+  #content input[type="time"],
+  #content select,
+  #content textarea {
+    transition: none;
+  }
+}

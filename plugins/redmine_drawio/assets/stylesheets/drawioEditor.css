@@ -1,0 +1,55 @@
+iframe.drawioEditor {
+    border:0;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    z-index:999999; /* Big number, to cover the EasyRedmine toolbar */
+}
+                   
+.jstb_drawio_attach {
+    background-image: url(../images/jstb_drawio_attach.png);
+}
+
+.jstb_drawio_dmsf {
+    background-image: url(../images/jstb_drawio_dmsf.png);
+}
+
+#drawio_diagName {
+    border-color: #d05050;
+}
+
+input[readonly].drawio {
+    opacity: 0.5;
+    color: #545454;
+    background-color: #EAEAEA;
+}
+
+/* Hide the spinner in numeric inputs */
+#drawio_form input.digits::-webkit-outer-spin-button,
+#drawio_form input.digits::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/* Same as before, for Firefox */
+#drawio_form input.digits[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+/* Fix for tinymce buttongroup hidden after adding buttons */
+.mce-btn-group {
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.mce-btn-group > div {
+    width: auto !important;
+    height: auto !important;
+}
+/* End tinymce fix */

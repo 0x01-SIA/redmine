@@ -1,0 +1,183 @@
+/* Canvas and typography */
+html {
+  background-color: var(--oh-canvas);
+  color: var(--oh-text-primary);
+}
+
+body {
+  background-color: var(--oh-canvas);
+  color: var(--oh-text-primary);
+  font-family: var(--oh-font-sans);
+  font-size: var(--oh-text-md);
+  line-height: var(--oh-line-normal);
+}
+
+#wrapper,
+#main {
+  background-color: var(--oh-canvas);
+}
+
+#content,
+#content p,
+#content li,
+#content dd,
+#content dt,
+#content blockquote {
+  color: var(--oh-text-primary);
+  font-size: var(--oh-text-md);
+  line-height: var(--oh-line-relaxed);
+}
+
+#content p,
+#content ul,
+#content ol,
+#content dl,
+#content pre,
+#content blockquote {
+  margin-top: 0;
+  margin-bottom: var(--oh-space-4);
+}
+
+#content p.nodata {
+  color: var(--oh-text-secondary);
+  font-size: var(--oh-text-sm);
+}
+
+/* Links */
+#content a[href],
+#content .wiki a[href],
+#content .box a[href] {
+  color: var(--oh-accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+  transition:
+    color var(--oh-duration-fast) var(--oh-ease-standard),
+    text-decoration-color var(--oh-duration-fast) var(--oh-ease-standard);
+}
+
+#content a[href]:hover,
+#content .wiki a[href]:hover,
+#content .box a[href]:hover {
+  color: var(--oh-accent-hover);
+  text-decoration-color: currentColor;
+}
+
+#content a[href]:focus-visible,
+#content .wiki a[href]:focus-visible,
+#content .box a[href]:focus-visible {
+  outline: 2px solid var(--oh-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--oh-radius-control);
+}
+
+/* Headings and text flow */
+#content h1,
+#content h2,
+#content h3,
+#content h4 {
+  color: var(--oh-text-primary);
+  font-family: var(--oh-font-sans);
+  letter-spacing: normal;
+  margin-top: 0;
+  margin-bottom: var(--oh-space-3);
+}
+
+#content h1 {
+  font-size: var(--oh-text-2xl);
+  font-weight: var(--oh-weight-semibold);
+  line-height: var(--oh-line-compact);
+}
+
+#content h2 {
+  font-size: var(--oh-text-xl);
+  font-weight: var(--oh-weight-semibold);
+  line-height: var(--oh-line-compact);
+}
+
+#content h3 {
+  font-size: var(--oh-text-lg);
+  font-weight: var(--oh-weight-medium);
+  line-height: var(--oh-line-compact);
+}
+
+#content h4 {
+  border-bottom: 1px solid var(--oh-divider);
+  font-size: var(--oh-text-md);
+  font-weight: var(--oh-weight-medium);
+  line-height: var(--oh-line-normal);
+  padding-bottom: var(--oh-space-2);
+}
+
+#content hr,
+#content .wiki hr {
+  background: var(--oh-divider);
+  border: 0;
+  height: 1px;
+  margin: var(--oh-space-6) 0;
+}
+
+/* Code */
+#content code,
+#content tt {
+  background-color: var(--oh-surface-secondary);
+  border: 1px solid var(--oh-border-subtle);
+  border-radius: var(--oh-radius-control);
+  color: var(--oh-text-primary);
+  font-family: var(--oh-font-mono);
+  font-size: 0.95em;
+  padding: 0.12rem 0.35rem;
+}
+
+#content pre {
+  background-color: var(--oh-surface-secondary);
+  border: 1px solid var(--oh-border-subtle);
+  border-radius: var(--oh-radius-container);
+  color: var(--oh-text-primary);
+  font-family: var(--oh-font-mono);
+  font-size: var(--oh-text-sm);
+  line-height: var(--oh-line-normal);
+  overflow-x: auto;
+  padding: var(--oh-space-4);
+}
+
+#content pre code {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  display: inline;
+  font-size: inherit;
+  padding: 0;
+}
+
+/* Primary content surfaces */
+#content {
+  background-color: var(--oh-surface);
+  border-left: 1px solid var(--oh-border-subtle);
+  box-shadow: none;
+  color: var(--oh-text-primary);
+  padding: var(--oh-space-4) var(--oh-space-5);
+}
+
+#main.nosidebar #content {
+  border-left: 0;
+}
+
+/* Generic grouped surfaces */
+.box {
+  background-color: var(--oh-surface-secondary);
+  border: 1px solid var(--oh-border-subtle);
+  border-radius: var(--oh-radius-container);
+  box-shadow: none;
+  color: var(--oh-text-primary);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #content a[href],
+  #content .wiki a[href],
+  #content .box a[href] {
+    transition: none;
+  }
+}

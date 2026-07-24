@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  host: <%= ENV.fetch("DATABASE_HOST", "db") %>
+  database: <%= ENV.fetch("DATABASE_NAME", "redmine_development") %>
+  username: <%= ENV.fetch("DATABASE_USER", "redmine") %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD", "change-me") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+  variables:
+    transaction_isolation: "READ-COMMITTED"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: <%= ENV.fetch("DATABASE_TEST_NAME", "redmine_test") %>
+
+production:
+  <<: *default
+  host: <%= ENV.fetch("DATABASE_HOST") %>
+  database: <%= ENV.fetch("DATABASE_NAME") %>
+  username: <%= ENV.fetch("DATABASE_USER") %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD") %>

@@ -1,0 +1,91 @@
+:root {
+  /* Canvas and surfaces */
+  --oh-canvas: #f4f6fa;
+  --oh-sidebar: #eef2f7;
+  --oh-surface: #fcfdff;
+  --oh-surface-secondary: #f7f9fc;
+  --oh-surface-tertiary: #f1f4f8;
+  --oh-surface-elevated: #ffffff;
+  --oh-surface-hover: #f3f7fc;
+  --oh-surface-selected: #eaf2ff;
+
+  /* Text */
+  --oh-text-primary: #1f2937;
+  --oh-text-secondary: #4b5a6a;
+  --oh-text-tertiary: #6c7a89;
+  --oh-text-disabled: #97a3b2;
+  --oh-text-on-accent: #ffffff;
+
+  /* Borders and dividers */
+  --oh-border-subtle: #e6ebf2;
+  --oh-border-default: #d9e0ea;
+  --oh-border-strong: #c7d0dc;
+  --oh-divider: rgba(126, 145, 166, 0.18);
+
+  /* Accent */
+  --oh-accent: #2f7cf6;
+  --oh-accent-hover: #216fe5;
+  --oh-accent-active: #195fc8;
+  --oh-accent-soft: #e6f0ff;
+  --oh-focus-ring: rgba(47, 124, 246, 0.28);
+
+  /* Semantic */
+  --oh-success: #2f8f63;
+  --oh-success-soft: #e7f5ed;
+  --oh-warning: #b7791f;
+  --oh-warning-soft: #fbf1df;
+  --oh-danger: #c25757;
+  --oh-danger-soft: #fbeaea;
+  --oh-info: #3b74c5;
+  --oh-info-soft: #e9f2ff;
+
+  /* Spacing */
+  --oh-space-1: 0.25rem;
+  --oh-space-2: 0.5rem;
+  --oh-space-3: 0.75rem;
+  --oh-space-4: 1rem;
+  --oh-space-5: 1.25rem;
+  --oh-space-6: 1.5rem;
+  --oh-space-8: 2rem;
+  --oh-space-10: 2.5rem;
+  --oh-space-12: 3rem;
+
+  /* Radius */
+  --oh-radius-control: 0.5rem;
+  --oh-radius-container: 0.75rem;
+  --oh-radius-large: 1rem;
+  --oh-radius-pill: 999px;
+
+  /* Shadows */
+  --oh-shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px rgba(15, 23, 42, 0.03);
+  --oh-shadow-elevated: 0 8px 24px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.05);
+  --oh-shadow-overlay: 0 18px 48px rgba(15, 23, 42, 0.12), 0 6px 18px rgba(15, 23, 42, 0.08);
+
+  /* Typography */
+  --oh-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+  --oh-font-mono: "SFMono-Regular", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --oh-text-xs: 0.75rem;
+  --oh-text-sm: 0.875rem;
+  --oh-text-md: 0.9375rem;
+  --oh-text-lg: 1.0625rem;
+  --oh-text-xl: 1.25rem;
+  --oh-text-2xl: 1.5rem;
+  --oh-weight-regular: 400;
+  --oh-weight-medium: 500;
+  --oh-weight-semibold: 600;
+  --oh-line-compact: 1.3;
+  --oh-line-normal: 1.5;
+  --oh-line-relaxed: 1.65;
+
+  /* Layout */
+  --oh-sidebar-width: 17rem;
+  --oh-content-max: 90rem;
+  --oh-control-height: 2.375rem;
+  --oh-control-height-compact: 2rem;
+  --oh-header-height: 3.5rem;
+
+  /* Motion */
+  --oh-duration-fast: 120ms;
+  --oh-duration-normal: 180ms;
+  --oh-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}

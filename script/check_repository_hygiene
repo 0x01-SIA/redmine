@@ -1,0 +1,55 @@
+#!/bin/sh
+
+set -eu
+
+max_bytes="${MAX_TRACKED_FILE_BYTES:-1048576}"
+status=0
+
+fail() {
+  printf '%s\n' "$1" >&2
+  status=1
+}
+
+has_match() {
+  grep -Eq "$1" "$tmp_file"
+}
+
+tracked_files="$(git ls-files)"
+tmp_file="$(mktemp)"
+trap 'rm -f "$tmp_file"' EXIT
+printf '%s\n' "$tracked_files" > "$tmp_file"
+
+if has_match '(^|/)\.DS_Store$'; then
+  fail "Tracked .DS_Store files are not allowed."
+fi
+if has_match '^\.bundle/config$'; then
+  fail "Tracked .bundle/config is not allowed."
+fi
+if grep -Ev '^\.env\.example$' "$tmp_file" | grep -Eq '^\.env($|[.])'; then
+  fail "Tracked .env files are not allowed."
+fi
+if has_match '^log/.*\.log$'; then
+  fail "Tracked runtime logs are not allowed."
+fi
+if has_match '^public/assets/'; then
+  fail "Tracked public/assets content is not allowed."
+fi
+if has_match '^public/plugin_assets/'; then
+  fail "Tracked public/plugin_assets content is not allowed."
+fi
+if grep -Ev '^files/delete\.me$' "$tmp_file" | grep -Eq '^files/'; then
+  fail "Tracked uploads under files/ are not allowed."
+fi
+if has_match '(\.bak|\.backup|\.old|\.orig|~|\.swp)$'; then
+  fail "Tracked backup or editor temporary files are not allowed."
+fi
+
+while IFS= read -r path; do
+  [ -f "$path" ] || continue
+  size="$(wc -c < "$path" | tr -d ' ')"
+  if [ "$size" -gt "$max_bytes" ]; then
+    fail "Tracked file exceeds size limit (${max_bytes} bytes): $path"
+  fi
+done < "$tmp_file"
+
+exit "$status"
