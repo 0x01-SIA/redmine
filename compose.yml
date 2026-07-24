@@ -2,8 +2,10 @@ services:
   app:
     build:
       context: .
+
     ports:
       - "3000:3000"
+
     environment:
       RAILS_ENV: ${RAILS_ENV:-development}
       DATABASE_HOST: ${DATABASE_HOST:-db}
@@ -11,32 +13,36 @@ services:
       DATABASE_USER: ${DATABASE_USER:-redmine}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD:-change-me}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE:-development-only-change-me}
+
     volumes:
       - .:/app
       - redmine_files:/app/files
+
     depends_on:
       db:
         condition: service_healthy
+
     stdin_open: true
     tty: true
 
   db:
     image: mariadb:11.4
+
     environment:
       MARIADB_DATABASE: ${MARIADB_DATABASE:-redmine_development}
       MARIADB_USER: ${MARIADB_USER:-redmine}
       MARIADB_PASSWORD: ${MARIADB_PASSWORD:-change-me}
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-development-root-change-me}
+
     volumes:
       - database_data:/var/lib/mysql
+
     healthcheck:
       test:
-        [
-          "CMD",
-          "healthcheck.sh",
-          "--connect",
-          "--innodb_initialized"
-        ]
+        - CMD
+        - healthcheck.sh
+        - --connect
+        - --innodb_initialized
       interval: 5s
       timeout: 5s
       retries: 30

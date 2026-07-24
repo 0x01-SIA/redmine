@@ -27,8 +27,8 @@ Design direction and UI constraints are documented in
 - MariaDB 11.4 in local Docker development
 - Docker Compose for local startup
 
-Upstream status and divergence notes are documented in [UPSTREAM.md](UPSTREAM.md).
-Third-party bundled components are tracked in
+Upstream status and divergence notes are documented in
+[UPSTREAM.md](UPSTREAM.md). Third-party bundled components are tracked in
 [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Local development setup

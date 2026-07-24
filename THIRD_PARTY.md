@@ -17,5 +17,7 @@ unless noted.
 ## Notes
 
 - The repository now keeps only the project-owned `themes/redmine_oh` theme.
-- Vendored third-party code was intentionally left unmodified during this cleanup.
-- Components without a clear local license file should be reviewed before any company-owned redistribution or broader publication decisions.
+- Vendored third-party code was intentionally left unmodified during this
+  cleanup.
+- Components without a clear local license file should be reviewed before any
+  company-owned redistribution or broader publication decisions.
