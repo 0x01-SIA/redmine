@@ -1,6 +1,8 @@
 # Third-Party Components
 
-This inventory records vendored third-party plugins retained in the repository during the migration cleanup. Compatibility has not been exhaustively tested unless noted.
+This inventory records vendored third-party plugins retained in the repository
+during the migration cleanup. Compatibility has not been exhaustively tested
+unless noted.
 
 ## Plugins
 

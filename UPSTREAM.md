@@ -7,9 +7,11 @@
 
 ## Best available base identification
 
-The strongest local evidence indicates that this repository is based on Redmine `6.1.0.devel`:
+The strongest local evidence indicates that this repository is based on Redmine
+`6.1.0.devel`:
 
-- `lib/redmine/version.rb` declares `MAJOR = 6`, `MINOR = 1`, `TINY = 0`, and `BRANCH = 'devel'`.
+- `lib/redmine/version.rb` declares `MAJOR = 6`, `MINOR = 1`, `TINY = 0`, and
+  `BRANCH = 'devel'`
 - `Gemfile` requires Ruby `>= 3.2.0` and `< 3.5.0`.
 - `Gemfile.lock` records Ruby `3.3.8p144`.
 - The repository contains standard upstream Redmine documentation files under `doc/`.
