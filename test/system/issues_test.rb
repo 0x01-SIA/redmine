@@ -214,18 +214,66 @@ class IssuesSystemTest < ApplicationSystemTestCase
     assert_equal 'new issue description', issue.description
   end
 
-  def test_new_issue_description_label_matches_editor_width
-    log_user('jsmith', 'jsmith')
-    visit '/projects/ecookbook/issues/new'
+  def test_redmine_oh_description_editor_uses_stacked_full_width_layout
+    with_settings :ui_theme => 'redmine_oh' do
+      log_user('jsmith', 'jsmith')
 
-    label_width = evaluate_script(<<~JS)
-      Math.round(document.querySelector("label[for='issue_description']").getBoundingClientRect().width)
-    JS
-    editor_width = evaluate_script(<<~JS)
-      Math.round(document.querySelector("#issue_description_and_toolbar .jstTabs").getBoundingClientRect().width)
-    JS
+      ['/projects/ecookbook/issues/new', '/issues/1/edit'].each do |path|
+        visit path
 
-    assert_in_delta editor_width, label_width, 2
+        metrics = issue_description_layout_metrics
+
+        assert_equal 'left', metrics['labelTextAlign']
+        assert_operator metrics['editorTop'], :>=, metrics['labelBottom'] - 1
+        assert_in_delta metrics['rowLeft'], metrics['labelLeft'], 2
+        assert_in_delta metrics['rowLeft'], metrics['editorLeft'], 2
+        assert_operator metrics['editorRight'], :<=, metrics['rowRight'] + 1
+        assert_operator metrics['tabsRight'], :<=, metrics['rowRight'] + 1
+        assert_operator metrics['textareaRight'], :<=, metrics['rowRight'] + 1
+        assert_operator metrics['rowScrollWidth'], :<=, metrics['rowClientWidth'] + 2
+      end
+
+      visit '/projects/ecookbook/issues/new'
+      fill_in 'Subject', :with => 'Theme layout regression check'
+      fill_in 'Description', :with => 'Description layout still submits'
+
+      assert_difference 'Issue.count' do
+        find('input[name=commit]').click
+        assert_text /Issue #\d+ created./
+      end
+    end
+  end
+
+  def test_redmine_oh_issue_query_filters_stay_inline_without_overflow
+    with_settings :ui_theme => 'redmine_oh' do
+      log_user('jsmith', 'jsmith')
+      visit '/issues'
+
+      page.execute_script <<~JS
+        addFilter('status_id', '=', ['1']);
+        addFilter('subject', '~', ['issue']);
+      JS
+
+      assert_selector '#tr_status_id'
+      assert_selector '#tr_subject'
+
+      filter_metrics = query_filter_layout_metrics(%w[tr_status_id tr_subject])
+
+      filter_metrics['rows'].each do |row|
+        assert_operator row['alignmentDelta'], :<=, 8
+        assert_operator row['scrollWidth'], :<=, row['clientWidth'] + 2
+        assert_operator row['valuesRight'], :<=, row['rowRight'] + 1
+      end
+      assert_operator filter_metrics['tableScrollWidth'], :<=, filter_metrics['tableClientWidth'] + 2
+
+      within '#query_form_with_buttons > p.buttons' do
+        click_link 'Apply'
+      end
+
+      assert_current_path '/issues', :ignore_query => true
+      assert_selector '#tr_status_id'
+      assert_selector '#tr_subject'
+    end
   end
 
   test "update issue with form update" do
@@ -687,5 +735,72 @@ class IssuesSystemTest < ApplicationSystemTestCase
 
     # assert add notes form does not exist anymore for user without required permissions on the new project
     assert page.has_no_css?('#add_notes')
+  end
+
+  private
+
+  def issue_description_layout_metrics
+    evaluate_script(<<~JS)
+      (() => {
+        const row = document.querySelector("label[for='issue_description']").closest('p');
+        const label = row.querySelector("label[for='issue_description']");
+        const editor = row.querySelector('#issue_description_and_toolbar');
+        const tabs = row.querySelector('#issue_description_and_toolbar .jstTabs');
+        const textarea = row.querySelector('#issue_description');
+        const rowRect = row.getBoundingClientRect();
+        const labelRect = label.getBoundingClientRect();
+        const editorRect = editor.getBoundingClientRect();
+        const tabsRect = tabs.getBoundingClientRect();
+        const textareaRect = textarea.getBoundingClientRect();
+
+        return {
+          rowLeft: Math.round(rowRect.left),
+          rowRight: Math.round(rowRect.right),
+          labelLeft: Math.round(labelRect.left),
+          labelBottom: Math.round(labelRect.bottom),
+          labelTextAlign: window.getComputedStyle(label).textAlign,
+          editorLeft: Math.round(editorRect.left),
+          editorTop: Math.round(editorRect.top),
+          editorRight: Math.round(editorRect.right),
+          tabsRight: Math.round(tabsRect.right),
+          textareaRight: Math.round(textareaRect.right),
+          rowClientWidth: row.clientWidth,
+          rowScrollWidth: row.scrollWidth
+        };
+      })()
+    JS
+  end
+
+  def query_filter_layout_metrics(row_ids)
+    evaluate_script(<<~JS)
+      (() => {
+        const filtersTable = document.querySelector('#filters-table');
+        const rows = #{row_ids.to_json}.map((rowId) => {
+          const row = document.getElementById(rowId);
+          const field = row.querySelector('.field');
+          const operator = row.querySelector('.operator');
+          const values = row.querySelector('.values');
+          const fieldRect = field.getBoundingClientRect();
+          const operatorRect = operator.getBoundingClientRect();
+          const valuesRect = values.getBoundingClientRect();
+          const tops = [fieldRect.top, operatorRect.top, valuesRect.top].map((value) => Math.round(value));
+          const rowRect = row.getBoundingClientRect();
+
+          return {
+            alignmentDelta: Math.max(...tops) - Math.min(...tops),
+            clientWidth: row.clientWidth,
+            rowRight: Math.round(rowRect.right),
+            scrollWidth: row.scrollWidth,
+            valuesRight: Math.round(valuesRect.right)
+          };
+        });
+
+        return {
+          rows,
+          tableClientWidth: filtersTable.clientWidth,
+          tableScrollWidth: filtersTable.scrollWidth
+        };
+      })()
+    JS
   end
 end
