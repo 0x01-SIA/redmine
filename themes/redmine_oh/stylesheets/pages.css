@@ -2884,7 +2884,8 @@ body.controller-rdb_taskboard.action-index #rdb-header .rdb-board h2 {
   color: var(--oh-text-primary);
   font-size: var(--oh-text-xl);
   font-weight: var(--oh-weight-semibold);
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
+  line-height: 1.25;
 }
 
 body.controller-rdb_taskboard.action-index a#rdb-refresh {
@@ -2932,9 +2933,25 @@ body.controller-rdb_taskboard.action-index .rdb-menu a.rdb-menu-link {
     box-shadow var(--oh-duration-fast) var(--oh-ease-standard);
 }
 
+body.controller-rdb_taskboard.action-index #rdb-header .rdb-menu a.rdb-menu-link {
+  display: inline-block;
+  font-stretch: normal;
+  line-height: 1.35;
+  padding: 0.5rem 1.9rem 0.5rem 0.95rem;
+  white-space: nowrap;
+  width: auto;
+}
+
 body.controller-rdb_taskboard.action-index .rdb-board .rdb-menu a.rdb-menu-link {
   color: var(--oh-accent);
+  font-size: var(--oh-text-2xl);
   font-weight: var(--oh-weight-semibold);
+}
+
+body.controller-rdb_taskboard.action-index #rdb-header .rdb-filter .rdb-menu a.rdb-menu-link,
+body.controller-rdb_taskboard.action-index #rdb-header .rdb-option .rdb-menu a.rdb-menu-link {
+  font-size: var(--oh-text-md);
+  font-weight: var(--oh-weight-medium);
 }
 
 body.controller-rdb_taskboard.action-index .rdb-menu a.rdb-menu-link::before {
