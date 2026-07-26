@@ -3,6 +3,8 @@
   = stylesheet_link_tag 'dashboard.ui.css', plugin: :redmine_dashboard
   = stylesheet_link_tag 'dashboard.issues.css', plugin: :redmine_dashboard
   = stylesheet_link_tag 'dashboard.taskboard.css', plugin: :redmine_dashboard
+  - if current_theme&.stylesheets&.include?('dashboard_overrides')
+    = stylesheet_link_tag 'dashboard_overrides'
   = javascript_include_tag 'jquery.autoellipsis.js', plugin: :redmine_dashboard
   = javascript_include_tag 'jquery.total-storage.js', plugin: :redmine_dashboard
   = javascript_include_tag 'dashboard.js', plugin: :redmine_dashboard
