@@ -399,6 +399,11 @@ body.controller-rdb_taskboard.action-index .rdb-compact-header a.rdb-menu-link {
   padding: 0.25rem 0.75rem 0.25rem 1.75rem;
 }
 
+body.controller-rdb_taskboard.action-index .rdb-card-title a.rdb-menu-link,
+body.controller-rdb_taskboard.action-index .rdb-compact-title a.rdb-menu-link {
+  padding-right: 1.6rem;
+}
+
 body.controller-rdb_taskboard.action-index .rdb-card-title a.rdb-menu-link:hover,
 body.controller-rdb_taskboard.action-index .rdb-card-title > a:hover,
 body.controller-rdb_taskboard.action-index .rdb-compact-title a.rdb-menu-link:hover {
