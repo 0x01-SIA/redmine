@@ -225,6 +225,19 @@
   max-width: min(100%, 18rem);
 }
 
+/* New issue description editor alignment */
+body.controller-issues.action-new #issue-form label[for="issue_description"] {
+  display: block;
+  float: none;
+  margin-left: 0;
+  text-align: left;
+  width: 95%;
+}
+
+body.controller-issues #issue-form #issue_description_and_toolbar {
+  display: block;
+}
+
 /* Query actions */
 #query_form_with_buttons > p.buttons {
   align-items: center;

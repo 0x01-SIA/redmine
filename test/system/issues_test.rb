@@ -214,6 +214,20 @@ class IssuesSystemTest < ApplicationSystemTestCase
     assert_equal 'new issue description', issue.description
   end
 
+  def test_new_issue_description_label_matches_editor_width
+    log_user('jsmith', 'jsmith')
+    visit '/projects/ecookbook/issues/new'
+
+    label_width = evaluate_script(<<~JS)
+      Math.round(document.querySelector("label[for='issue_description']").getBoundingClientRect().width)
+    JS
+    editor_width = evaluate_script(<<~JS)
+      Math.round(document.querySelector("#issue_description_and_toolbar .jstTabs").getBoundingClientRect().width)
+    JS
+
+    assert_in_delta editor_width, label_width, 2
+  end
+
   test "update issue with form update" do
     field = IssueCustomField.create!(
       :field_format => 'string',
