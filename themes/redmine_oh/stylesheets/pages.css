@@ -315,8 +315,8 @@
 body.controller-issues.action-index #query_form_content #list-definition {
   align-items: start;
   display: grid;
-  gap: var(--oh-space-4);
-  grid-template-columns: minmax(32rem, 42rem) repeat(3, minmax(10rem, max-content));
+  gap: var(--oh-space-4) var(--oh-space-3);
+  grid-template-columns: minmax(32rem, 42rem) minmax(9rem, max-content) minmax(8rem, max-content) minmax(8rem, max-content);
 }
 
 body.controller-issues.action-index #query_form_content #list-definition > div {
@@ -406,7 +406,7 @@ body.controller-issues.action-index #query_form_content #list-definition > div:n
   align-content: start;
   display: flex;
   flex-direction: column;
-  gap: var(--oh-space-2);
+  gap: var(--oh-space-1);
   min-width: 0;
 }
 
@@ -432,13 +432,13 @@ body.controller-issues.action-index #query_form_content #list-definition > div:n
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  gap: var(--oh-space-2);
+  gap: var(--oh-space-1);
 }
 
 body.controller-issues.action-index #query_form_content #list-definition label.inline {
   align-items: center;
   display: inline-flex;
-  gap: 0.45rem;
+  gap: 0.35rem;
   margin: 0;
 }
 
