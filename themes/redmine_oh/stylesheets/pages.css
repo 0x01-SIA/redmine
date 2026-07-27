@@ -312,6 +312,136 @@
   flex-shrink: 0;
 }
 
+body.controller-issues.action-index #query_form_content #list-definition {
+  align-items: start;
+  display: grid;
+  gap: var(--oh-space-4);
+  grid-template-columns: minmax(32rem, 42rem) repeat(3, minmax(10rem, max-content));
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div {
+  border-top: 0;
+  margin: 0;
+  max-width: none;
+  padding-top: 0;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child {
+  display: grid;
+  gap: var(--oh-space-2) var(--oh-space-3);
+  grid-column: 1;
+  grid-template-columns: minmax(12rem, 1fr) auto minmax(12rem, 1fr);
+  grid-template-rows: auto auto auto;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .field {
+  color: var(--oh-text-primary);
+  font-size: var(--oh-text-sm);
+  grid-column: 1 / -1;
+  line-height: 1.35;
+  padding-top: 0;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .query-columns:first-of-type {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .buttons:first-of-type {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--oh-space-2);
+  grid-column: 2;
+  grid-row: 2;
+  justify-content: center;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .query-columns:last-of-type {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .buttons:last-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oh-space-2);
+  grid-column: 3;
+  grid-row: 3;
+  justify-content: flex-start;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child .query-columns {
+  min-width: 0;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child .query-columns label {
+  margin: 0 0 var(--oh-space-1);
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child .query-columns select {
+  min-height: 10rem;
+  width: 100%;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:first-child .buttons input[type="button"] {
+  min-height: 2rem;
+  min-width: 2rem;
+  padding: 0.08rem 0.45rem;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(2) {
+  grid-column: 2;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(3) {
+  grid-column: 3;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(4) {
+  grid-column: 4;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(n + 2) {
+  align-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--oh-space-2);
+  min-width: 0;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(n + 2) > .field {
+  color: var(--oh-text-primary);
+  font-size: var(--oh-text-sm);
+  line-height: 1.35;
+  padding-top: 0;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(n + 2) > :not(.field) {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(2) select {
+  min-width: 10rem;
+  width: min(100%, 12rem);
+}
+
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(3) > div,
+body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(4) > div {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--oh-space-2);
+}
+
+body.controller-issues.action-index #query_form_content #list-definition label.inline {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45rem;
+  margin: 0;
+}
+
 /* Issue table */
 body.controller-issues.action-index .query-totals {
   color: var(--oh-text-secondary);
@@ -2008,6 +2138,43 @@ body.controller-projects.action-index #content > p[style*="text-align:right"] .i
 }
 
 @media (max-width: 899px) {
+  body.controller-issues.action-index #query_form_content #list-definition {
+    grid-template-columns: 1fr;
+  }
+
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child,
+  body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(2),
+  body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(3),
+  body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(4) {
+    grid-column: auto;
+  }
+
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .field,
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .query-columns:first-of-type,
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .buttons:first-of-type,
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .query-columns:last-of-type,
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .buttons:last-of-type {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .buttons:first-of-type,
+  body.controller-issues.action-index #query_form_content #list-definition > div:first-child > .buttons:last-of-type,
+  body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(3) > div,
+  body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(4) > div {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  body.controller-issues.action-index #query_form_content #list-definition > div:nth-child(2) select {
+    width: 100%;
+  }
+
   body.controller-projects.action-index #content > .contextual {
     float: none;
     margin-left: 0;
